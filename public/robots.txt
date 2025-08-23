@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sc-repair.vercel.app
+
+# Sitemaps
+Sitemap: https://sc-repair.vercel.app/sitemap.xml
