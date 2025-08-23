@@ -57,7 +57,7 @@ export function HowItWorks() {
 
         <div className="text-center mt-12">
           <p className="text-sm text-muted-foreground">
-            New to SC Repair? Our step-by-step guide makes it easy to get started.
+            New to KKS Repair? Our step-by-step guide makes it easy to get started.
           </p>
         </div>
       </div>

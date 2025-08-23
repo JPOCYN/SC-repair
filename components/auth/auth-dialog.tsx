@@ -20,7 +20,7 @@ export function AuthDialog({ open, onOpenChange, defaultTab = "login" }: AuthDia
       <DialogContent className="sm:max-w-md">
         <DialogHeader>
           <DialogTitle className="text-center text-2xl font-bold">
-            Welcome to SC Repair
+            Welcome to KKS Repair
           </DialogTitle>
         </DialogHeader>
         
@@ -46,7 +46,7 @@ export function AuthDialog({ open, onOpenChange, defaultTab = "login" }: AuthDia
         </Tabs>
 
         <div className="text-center text-xs text-muted-foreground mt-4">
-          By continuing you agree to our Terms and Privacy Policy.
+          By continuing you agree to KKS Repair Terms and Privacy Policy.
         </div>
       </DialogContent>
     </Dialog>

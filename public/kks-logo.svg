@@ -1,0 +1,10 @@
+<svg width="120" height="40" viewBox="0 0 120 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Car silhouette -->
+  <path d="M10 25 Q15 20 25 20 L35 20 Q40 18 50 18 L70 18 Q75 20 85 20 L95 20 Q100 25 100 25 L95 28 Q90 30 80 30 L40 30 Q30 30 25 28 L10 25 Z" fill="white" stroke="white" stroke-width="1"/>
+  <path d="M20 22 Q25 18 35 18 L65 18 Q75 18 80 22 Q82 25 80 28 Q75 30 65 30 L35 30 Q25 30 20 28 Q18 25 20 22 Z" fill="none" stroke="white" stroke-width="1"/>
+  <!-- Wheels -->
+  <circle cx="30" cy="28" r="3" fill="none" stroke="white" stroke-width="1"/>
+  <circle cx="70" cy="28" r="3" fill="none" stroke="white" stroke-width="1"/>
+  <!-- Text -->
+  <text x="10" y="15" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#FF4444">KKS-SUPERCAR</text>
+</svg>

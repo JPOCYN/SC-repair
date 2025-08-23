@@ -7,24 +7,24 @@ import { Toaster } from '@/components/ui/toaster'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'SC Repair - Premium Supercar Repair Manuals',
+  title: 'KKS Repair - Premium Supercar Repair Manuals',
   description: 'Access professional repair manuals for luxury supercars. Expert-grade documentation for Ferrari, McLaren, Lamborghini, and more.',
-  keywords: 'supercar repair, luxury car manual, Ferrari repair, McLaren service, Lamborghini maintenance',
-  authors: [{ name: 'SC Repair Team' }],
-  creator: 'SC Repair',
-  publisher: 'SC Repair',
+  keywords: 'supercar repair, luxury car manual, Ferrari repair, McLaren service, Lamborghini maintenance, KKS repair',
+  authors: [{ name: 'KKS Repair Team' }],
+  creator: 'KKS Repair',
+  publisher: 'KKS Repair',
   robots: 'index, follow',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://sc-repair.vercel.app',
-    title: 'SC Repair - Premium Supercar Repair Manuals',
+    url: 'https://kks-repair.com',
+    title: 'KKS Repair - Premium Supercar Repair Manuals',
     description: 'Access professional repair manuals for luxury supercars. Expert-grade documentation for Ferrari, McLaren, Lamborghini, and more.',
-    siteName: 'SC Repair',
+    siteName: 'KKS Repair',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'SC Repair - Premium Supercar Repair Manuals',
+    title: 'KKS Repair - Premium Supercar Repair Manuals',
     description: 'Access professional repair manuals for luxury supercars.',
   },
   manifest: '/manifest.json',

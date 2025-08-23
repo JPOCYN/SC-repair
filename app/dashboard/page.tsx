@@ -51,7 +51,7 @@ function DashboardContent() {
               Welcome back, {user.email.split('@')[0]}!
             </h1>
             <p className="text-2xl text-slate-600 leading-relaxed">
-              Your comprehensive automotive repair documentation center
+              Your comprehensive KKS automotive repair documentation center
             </p>
           </div>
 
@@ -167,7 +167,13 @@ function DashboardContent() {
           <div className="flex justify-center pt-8">
             <Button 
               variant="outline" 
-              onClick={() => router.push('/')}
+              onClick={() => {
+                // Allow navigation to home even when logged in
+                if (typeof window !== 'undefined') {
+                  sessionStorage.setItem('allowHomePage', 'true')
+                }
+                router.push('/')
+              }}
               className="bg-white/50 border-slate-200 hover:bg-white hover:border-slate-300 text-slate-700 font-semibold px-8 py-3 text-lg"
             >
               Back to Home

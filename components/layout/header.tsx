@@ -15,11 +15,33 @@ export function Header({ onAuthClick }: HeaderProps) {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-slate-200/50 bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 shadow-sm">
       <div className="container flex h-18 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity group">
-          <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200">
-            <Car className="h-6 w-6 text-white" />
+        <Link 
+          href="/" 
+          className="flex items-center space-x-3 hover:opacity-80 transition-opacity group"
+          onClick={() => {
+            // Allow navigation to home even when logged in
+            if (typeof window !== 'undefined') {
+              sessionStorage.setItem('allowHomePage', 'true')
+            }
+          }}
+        >
+          <div className="w-12 h-10 bg-black rounded-lg flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-200 overflow-hidden">
+            {/* KKS Logo */}
+            <img 
+              src="/kks-logo.svg" 
+              alt="KKS Supercar" 
+              className="w-full h-full object-contain p-1"
+              onError={(e) => {
+                // Fallback to text if logo not found
+                e.currentTarget.style.display = 'none';
+                e.currentTarget.nextElementSibling.style.display = 'flex';
+              }}
+            />
+            <div className="hidden items-center justify-center w-full h-full">
+              <span className="text-white font-bold text-sm">KKS</span>
+            </div>
           </div>
-          <span className="text-2xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">SC Repair</span>
+          <span className="text-2xl font-bold bg-gradient-to-r from-slate-900 to-slate-700 bg-clip-text text-transparent">KKS Repair</span>
         </Link>
 
         <nav className="hidden md:flex items-center space-x-8">
@@ -28,6 +50,12 @@ export function Header({ onAuthClick }: HeaderProps) {
               <Link 
                 href="/" 
                 className="text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors px-3 py-2 rounded-lg hover:bg-slate-100/50"
+                onClick={() => {
+                  // Allow navigation to home even when logged in
+                  if (typeof window !== 'undefined') {
+                    sessionStorage.setItem('allowHomePage', 'true')
+                  }
+                }}
               >
                 Home
               </Link>

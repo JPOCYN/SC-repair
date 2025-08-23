@@ -9,7 +9,7 @@ export function Footer() {
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
               <Car className="h-6 w-6" />
-              <span className="text-lg font-bold">SC Repair</span>
+              <span className="text-lg font-bold">KKS Repair</span>
             </div>
             <p className="text-sm text-muted-foreground">
               Premium supercar repair manuals for the luxury automotive industry.
@@ -49,7 +49,7 @@ export function Footer() {
               All documents and information displayed on this website are gathered from open-access sources on the internet and are intended for educational purposes only.
             </p>
             <p className="text-xs text-muted-foreground">
-              © 2024 SC Repair. All rights reserved.
+              © 2024 KKS Repair. All rights reserved.
             </p>
           </div>
         </div>

@@ -27,20 +27,26 @@ function HomePageContent() {
   useEffect(() => {
     if (loading) return
 
-    // If user is logged in and no modals are open, redirect to dashboard
-    if (user && !authParam && !pricingParam && !activateParam) {
-      router.push('/dashboard')
+    // Check if user is coming from dashboard (allow them to stay on home)
+    const fromDashboard = sessionStorage.getItem('allowHomePage')
+    
+    // If user is logged in and not explicitly navigating to home, redirect to dashboard
+    if (user && !fromDashboard) {
+      // Close any open modals first
+      if (authParam || pricingParam || activateParam) {
+        updateQuery({ auth: null, pricing: null, activate: null })
+      }
+      // Small delay to ensure modal closes before redirect
+      setTimeout(() => {
+        router.push('/dashboard')
+      }, 100)
     }
-  }, [user, loading, authParam, pricingParam, activateParam, router])
 
-  // Handle redirect after successful login
-  useEffect(() => {
-    if (user && authParam) {
-      // Close auth modal and redirect immediately
-      updateQuery({ auth: null })
-      router.push('/dashboard')
+    // Clear the flag after checking
+    if (fromDashboard) {
+      sessionStorage.removeItem('allowHomePage')
     }
-  }, [user, authParam, router, updateQuery])
+  }, [user, loading, authParam, pricingParam, activateParam, router, updateQuery])
 
   const openAuth = (tab: 'login' | 'signup' = 'login') => {
     updateQuery({ auth: tab })
