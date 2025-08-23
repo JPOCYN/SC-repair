@@ -9,7 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { useAuthState } from "@/hooks/use-auth"
 import { Users, Search, Edit, Trash2, Plus, Shield } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { useRouter } from "next/navigation"
 
 // Mock admin check - in real app, this would be server-side
@@ -50,7 +50,7 @@ const mockUsers = [
   }
 ]
 
-export default function AdminUsersPage() {
+function AdminUsersPageContent() {
   const { user } = useAuthState()
   const router = useRouter()
   const [searchQuery, setSearchQuery] = useState("")
@@ -238,5 +238,13 @@ export default function AdminUsersPage() {
 
       <Footer />
     </div>
+  )
+}
+
+export default function AdminUsersPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center">Loading...</div>}>
+      <AdminUsersPageContent />
+    </Suspense>
   )
 }

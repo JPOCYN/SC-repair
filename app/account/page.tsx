@@ -8,12 +8,11 @@ import { Badge } from "@/components/ui/badge"
 import { Input } from "@/components/ui/input"
 import { useAuthState } from "@/hooks/use-auth"
 import { User, Calendar, Key, Settings, CreditCard } from "lucide-react"
-import { useState } from "react"
+import { useState, useEffect, Suspense } from "react"
 import { ActivationDialog } from "@/components/subscription/activation-dialog"
 import { useRouter } from "next/navigation"
-import { useEffect } from "react"
 
-export default function AccountPage() {
+function AccountPageContent() {
   const { user, subscription, logout } = useAuthState()
   const [activationOpen, setActivationOpen] = useState(false)
   const router = useRouter()
@@ -194,5 +193,13 @@ export default function AccountPage() {
         onOpenChange={setActivationOpen}
       />
     </div>
+  )
+}
+
+export default function AccountPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center">Loading...</div>}>
+      <AccountPageContent />
+    </Suspense>
   )
 }

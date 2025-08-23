@@ -91,6 +91,11 @@
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
 }
 
+.hero-pattern {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0);
+  background-size: 20px 20px;
+}
+
 .card-hover {
   @apply transition-all duration-200 hover:scale-[1.02] hover:shadow-lg;
 }

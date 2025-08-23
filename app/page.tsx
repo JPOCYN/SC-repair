@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, Suspense } from 'react'
 import { Header } from '@/components/layout/header'
 import { Hero } from '@/components/sections/hero'
 import { HowItWorks } from '@/components/sections/how-it-works'
@@ -13,7 +13,7 @@ import { PricingSheet } from '@/components/subscription/pricing-sheet'
 import { useAuthState } from '@/hooks/use-auth'
 import { useUrlState } from '@/hooks/use-url-state'
 
-export default function HomePage() {
+function HomePageContent() {
   const { user, subscription, loading } = useAuthState()
   const { getQuery, updateQuery } = useUrlState()
   
@@ -83,5 +83,13 @@ export default function HomePage() {
         onOpenChange={(open) => open ? null : closeActivation()}
       />
     </div>
+  )
+}
+
+export default function HomePage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-background flex items-center justify-center">Loading...</div>}>
+      <HomePageContent />
+    </Suspense>
   )
 }
