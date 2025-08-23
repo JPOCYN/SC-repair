@@ -3,6 +3,7 @@ export interface Brand {
   name: string
   logo: string
   modelCount: number
+  available?: boolean
   models: Model[]
 }
 
@@ -28,10 +29,44 @@ export interface ManualSection {
 
 export const mockBrands: Brand[] = [
   {
+    id: 'mclaren',
+    name: 'McLaren',
+    logo: '🏁',
+    modelCount: 18,
+    available: true,
+    models: [
+      {
+        id: '720s',
+        name: '720S',
+        brand: 'McLaren',
+        years: [2017, 2018, 2019, 2020, 2021],
+        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
+        specs: {
+          engine: '4.0L Twin-Turbo V8',
+          power: '710 HP',
+          topSpeed: '341 km/h'
+        }
+      },
+      {
+        id: 'p1',
+        name: 'P1',
+        brand: 'McLaren',
+        years: [2013, 2014, 2015],
+        image: 'https://images.unsplash.com/photo-1616788494707-ec4fe9293e0c?w=400',
+        specs: {
+          engine: '3.8L Twin-Turbo V8 + Electric',
+          power: '903 HP',
+          topSpeed: '350 km/h'
+        }
+      }
+    ]
+  },
+  {
     id: 'ferrari',
     name: 'Ferrari',
     logo: '🏎️',
     modelCount: 25,
+    available: false,
     models: [
       {
         id: 'f8-tributo',
@@ -72,42 +107,11 @@ export const mockBrands: Brand[] = [
     ]
   },
   {
-    id: 'mclaren',
-    name: 'McLaren',
-    logo: '🏁',
-    modelCount: 18,
-    models: [
-      {
-        id: '720s',
-        name: '720S',
-        brand: 'McLaren',
-        years: [2017, 2018, 2019, 2020, 2021],
-        image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400',
-        specs: {
-          engine: '4.0L Twin-Turbo V8',
-          power: '710 HP',
-          topSpeed: '341 km/h'
-        }
-      },
-      {
-        id: 'p1',
-        name: 'P1',
-        brand: 'McLaren',
-        years: [2013, 2014, 2015],
-        image: 'https://images.unsplash.com/photo-1616788494707-ec4fe9293e0c?w=400',
-        specs: {
-          engine: '3.8L Twin-Turbo V8 + Electric',
-          power: '903 HP',
-          topSpeed: '350 km/h'
-        }
-      }
-    ]
-  },
-  {
     id: 'lamborghini',
     name: 'Lamborghini',
     logo: '🚗',
     modelCount: 22,
+    available: false,
     models: [
       {
         id: 'huracan',
@@ -140,6 +144,7 @@ export const mockBrands: Brand[] = [
     name: 'Porsche',
     logo: '🏎️',
     modelCount: 35,
+    available: false,
     models: [
       {
         id: '911-turbo-s',
@@ -160,6 +165,7 @@ export const mockBrands: Brand[] = [
     name: 'Aston Martin',
     logo: '🚙',
     modelCount: 16,
+    available: false,
     models: [
       {
         id: 'db11',
@@ -180,6 +186,7 @@ export const mockBrands: Brand[] = [
     name: 'Bugatti',
     logo: '🏁',
     modelCount: 8,
+    available: false,
     models: [
       {
         id: 'chiron',

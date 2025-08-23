@@ -2,6 +2,7 @@
 
 import { Header } from "@/components/layout/header"
 import { Footer } from "@/components/layout/footer"
+import { Disclaimer } from "@/components/layout/disclaimer"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -186,6 +187,7 @@ function AccountPageContent() {
         </div>
       </main>
 
+      <Disclaimer className="container pb-8" />
       <Footer />
       
       <ActivationDialog 

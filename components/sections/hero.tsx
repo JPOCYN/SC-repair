@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { ArrowRight, Shield, Zap, Users } from "lucide-react"
 
 interface HeroProps {
-  onAuthClick: () => void
+  onAuthClick: (tab?: 'login' | 'signup') => void
 }
 
 export function Hero({ onAuthClick }: HeroProps) {
@@ -32,17 +32,17 @@ export function Hero({ onAuthClick }: HeroProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button 
               size="lg" 
-              className="bg-white text-black hover:bg-gray-100 min-w-[200px]"
-              onClick={onAuthClick}
+              className="bg-white text-black hover:bg-gray-100 min-w-[200px] font-semibold"
+              onClick={() => onAuthClick('signup')}
             >
-              Get Started
+              Get Started Free
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white/20 text-white hover:bg-white/10 min-w-[200px]"
-              onClick={onAuthClick}
+              className="border-white/30 text-white hover:bg-white/10 min-w-[200px] backdrop-blur-sm"
+              onClick={() => onAuthClick('login')}
             >
               Sign In
             </Button>

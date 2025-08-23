@@ -1,12 +1,14 @@
 "use client"
 
 import { useEffect, useState, Suspense } from 'react'
+import { useRouter } from 'next/navigation'
 import { Header } from '@/components/layout/header'
 import { Hero } from '@/components/sections/hero'
 import { HowItWorks } from '@/components/sections/how-it-works'
 import { BrandPreview } from '@/components/sections/brand-preview'
 import { PricingSection } from '@/components/sections/pricing-section'
 import { Footer } from '@/components/layout/footer'
+import { Disclaimer } from '@/components/layout/disclaimer'
 import { AuthDialog } from '@/components/auth/auth-dialog'
 import { ActivationDialog } from '@/components/subscription/activation-dialog'
 import { PricingSheet } from '@/components/subscription/pricing-sheet'
@@ -16,6 +18,7 @@ import { useUrlState } from '@/hooks/use-url-state'
 function HomePageContent() {
   const { user, subscription, loading } = useAuthState()
   const { getQuery, updateQuery } = useUrlState()
+  const router = useRouter()
   
   // URL-driven modal states
   const authParam = getQuery('auth')
@@ -26,11 +29,11 @@ function HomePageContent() {
   useEffect(() => {
     if (loading) return
 
-    // If user just logged in and has no subscription, show pricing
-    if (user && !subscription?.active && !pricingParam && !activateParam) {
-      updateQuery({ pricing: '1' })
+    // If user is logged in, redirect to dashboard
+    if (user && !authParam && !pricingParam && !activateParam) {
+      router.push('/dashboard')
     }
-  }, [user, subscription, loading, pricingParam, activateParam, updateQuery])
+  }, [user, loading, authParam, pricingParam, activateParam, router])
 
   const openAuth = (tab: 'login' | 'signup' = 'login') => {
     updateQuery({ auth: tab })
@@ -57,12 +60,14 @@ function HomePageContent() {
       <Header onAuthClick={() => openAuth()} />
       
       <main>
-        <Hero onAuthClick={() => openAuth()} />
+        <Hero onAuthClick={(tab) => openAuth(tab)} />
         <HowItWorks />
         <BrandPreview hasActiveSubscription={!!subscription?.active} />
-        <PricingSection />
+        {/* Only show pricing section if user is logged in but doesn't have active subscription */}
+        {user && !subscription?.active && <PricingSection />}
       </main>
 
+      <Disclaimer className="container pb-8" />
       <Footer />
       
       {/* URL-driven modals */}

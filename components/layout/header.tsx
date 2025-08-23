@@ -6,7 +6,7 @@ import { Car, User, LogOut } from "lucide-react"
 import Link from "next/link"
 
 interface HeaderProps {
-  onAuthClick: () => void
+  onAuthClick?: () => void
 }
 
 export function Header({ onAuthClick }: HeaderProps) {
@@ -55,13 +55,26 @@ export function Header({ onAuthClick }: HeaderProps) {
                 Sign Out
               </Button>
             </div>
-          ) : (
+          ) : onAuthClick ? (
             <div className="flex items-center space-x-2">
               <Button variant="ghost" size="sm" onClick={onAuthClick}>
                 Sign In
               </Button>
               <Button variant="premium" size="sm" onClick={onAuthClick}>
                 Create Account
+              </Button>
+            </div>
+          ) : (
+            <div className="flex items-center space-x-2">
+              <Button variant="ghost" size="sm" asChild>
+                <Link href="/">
+                  Sign In
+                </Link>
+              </Button>
+              <Button variant="premium" size="sm" asChild>
+                <Link href="/">
+                  Create Account
+                </Link>
               </Button>
             </div>
           )}
