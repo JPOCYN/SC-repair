@@ -38,29 +38,12 @@ export function PricingSheet({ open, onOpenChange, onActivateClick }: PricingShe
           </SheetDescription>
         </SheetHeader>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-1 gap-4 mb-8">
           {tiers.map((tier, index) => (
             <Card 
               key={index}
-              className={`relative ${
-                tier.popular ? 'ring-2 ring-primary border-primary' : ''
-              } ${tier.premium ? 'bg-gradient-to-b from-yellow-50 to-amber-50 border-yellow-300' : ''}`}
+              className="relative"
             >
-              {tier.popular && (
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-primary text-primary-foreground text-xs font-medium px-2 py-1 rounded-full">
-                    Popular
-                  </span>
-                </div>
-              )}
-              
-              {tier.premium && (
-                <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
-                  <span className="bg-gradient-to-r from-yellow-400 to-amber-500 text-black text-xs font-medium px-2 py-1 rounded-full">
-                    Best Value
-                  </span>
-                </div>
-              )}
 
               <CardHeader className="text-center pb-4">
                 <div className="mx-auto mb-2 p-2 rounded-full bg-primary/10">
