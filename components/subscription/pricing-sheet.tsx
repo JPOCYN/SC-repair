@@ -3,7 +3,7 @@
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetDescription } from "@/components/ui/sheet"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Check, Crown, Zap, Clock, Calendar } from "lucide-react"
+import { Check, Gift } from "lucide-react"
 
 interface PricingSheetProps {
   open: boolean
@@ -13,38 +13,17 @@ interface PricingSheetProps {
 
 const tiers = [
   {
-    name: "Daily Access",
-    price: "$9.99",
-    period: "per day",
-    icon: Clock,
-    features: ["24-hour access", "All brand manuals", "Mobile responsive"],
-    code: "DAILY123"
-  },
-  {
-    name: "Weekly Access", 
-    price: "$29.99",
-    period: "per week",
-    icon: Zap,
-    popular: true,
-    features: ["7-day access", "All brand manuals", "Advanced search", "Download PDFs"],
-    code: "WEEK123"
-  },
-  {
-    name: "Monthly Access",
-    price: "$79.99", 
-    period: "per month",
-    icon: Calendar,
-    features: ["30-day access", "All brand manuals", "Advanced search", "Download PDFs", "Priority support"],
-    code: "MONTH123"
-  },
-  {
-    name: "Yearly Access",
-    price: "$799.99",
-    period: "per year", 
-    icon: Crown,
-    premium: true,
-    features: ["365-day access", "All brand manuals", "Advanced search", "Download PDFs", "Priority support", "Technical diagrams"],
-    code: "YEAR123"
+    name: "Access with Code",
+    price: "Have a code?",
+    period: "",
+    icon: Gift,
+    features: [
+      "Use activation code to unlock access",
+      "System detects plan from code",
+      "All brand manuals included",
+      "No hidden fees"
+    ],
+    code: "DAILY123 / WEEK123 / MONTH123 / YEAR123"
   }
 ]
 
@@ -53,9 +32,9 @@ export function PricingSheet({ open, onOpenChange, onActivateClick }: PricingShe
     <Sheet open={open} onOpenChange={onOpenChange}>
       <SheetContent side="bottom" className="h-[90vh] overflow-y-auto">
         <SheetHeader className="text-center mb-8">
-          <SheetTitle className="text-2xl">Choose Your Subscription</SheetTitle>
+          <SheetTitle className="text-2xl">Activate Your Access</SheetTitle>
           <SheetDescription>
-            Select a plan to unlock access to all premium supercar repair manuals
+            Enter your activation code in the next step. We’ll detect the plan automatically.
           </SheetDescription>
         </SheetHeader>
 
@@ -108,13 +87,12 @@ export function PricingSheet({ open, onOpenChange, onActivateClick }: PricingShe
                   <Button 
                     className="w-full"
                     size="sm"
-                    variant={tier.popular || tier.premium ? "default" : "outline"}
                     onClick={onActivateClick}
                   >
                     Activate with Code
                   </Button>
                   <p className="text-xs text-center text-muted-foreground">
-                    Code: {tier.code}
+                    Demo codes: {tier.code}
                   </p>
                 </div>
               </CardContent>
@@ -122,15 +100,9 @@ export function PricingSheet({ open, onOpenChange, onActivateClick }: PricingShe
           ))}
         </div>
 
-        <div className="text-center space-y-4">
-          <p className="text-muted-foreground">
-            Purchase activation codes from our{" "}
-            <Button variant="link" className="px-0 text-primary underline">
-              Shopify store
-            </Button>
-          </p>
+        <div className="text-center space-y-2">
           <p className="text-sm text-muted-foreground">
-            All plans include full access to our repair manual library with no hidden fees.
+            After activation, you’ll have full access based on your code tier.
           </p>
         </div>
       </SheetContent>

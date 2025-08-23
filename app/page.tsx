@@ -6,9 +6,7 @@ import { Header } from '@/components/layout/header'
 import { Hero } from '@/components/sections/hero'
 import { HowItWorks } from '@/components/sections/how-it-works'
 import { BrandPreview } from '@/components/sections/brand-preview'
-import { PricingSection } from '@/components/sections/pricing-section'
 import { Footer } from '@/components/layout/footer'
-import { Disclaimer } from '@/components/layout/disclaimer'
 import { AuthDialog } from '@/components/auth/auth-dialog'
 import { ActivationDialog } from '@/components/subscription/activation-dialog'
 import { PricingSheet } from '@/components/subscription/pricing-sheet'
@@ -63,11 +61,8 @@ function HomePageContent() {
         <Hero onAuthClick={(tab) => openAuth(tab)} />
         <BrandPreview hasActiveSubscription={!!subscription?.active} />
         <HowItWorks />
-        {/* Only show pricing section if user is logged in but doesn't have active subscription */}
-        {user && !subscription?.active && <PricingSection />}
       </main>
 
-      <Disclaimer className="container pb-8" />
       <Footer />
       
       {/* URL-driven modals */}

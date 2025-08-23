@@ -46,7 +46,7 @@ export function Hero({ onAuthClick }: HeroProps) {
             <Button 
               size="lg" 
               variant="outline" 
-              className="border-white/50 text-white hover:bg-white/10 hover:border-white/70 min-w-[200px] backdrop-blur-sm font-semibold"
+              className="bg-transparent border-white/50 text-white hover:bg-white/10 hover:border-white/70 hover:text-white min-w-[200px] backdrop-blur-sm font-semibold"
               onClick={() => onAuthClick('login')}
             >
               Sign In

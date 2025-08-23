@@ -1,0 +1,5 @@
+[33md60e447[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m 2.2
+[33m82106f2[m[33m ([m[1;31morigin/master[m[33m)[m Major UX improvements: Fix sign-in buttons, add dashboard, show Coming Soon for brands, hide pricing on landing, add disclaimers
+[33m6c09451[m Fix Vercel deployment: Add proper vercel.json, .vercelignore, and update next.config.js
+[33m62428fa[m Add test page for routing verification and remove problematic vercel.json
+[33md95160b[m Fix 404 errors: Add not-found page, loading page, and health API endpoint

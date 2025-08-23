@@ -4,7 +4,6 @@ import { useEffect, Suspense } from 'react'
 import { useRouter } from 'next/navigation'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { Disclaimer } from '@/components/layout/disclaimer'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -45,6 +44,9 @@ function DashboardContent() {
               Your supercar repair manual dashboard
             </p>
           </div>
+
+          {/* Primary CTA: Browse Brands */}
+          <BrandPreview hasActiveSubscription={!!subscription?.active} />
 
           {/* Subscription Status */}
           <Card>
@@ -115,27 +117,13 @@ function DashboardContent() {
             </Card>
           </div>
 
-          {/* Content based on subscription status */}
-          {subscription?.active ? (
-            <BrandPreview hasActiveSubscription={true} />
-          ) : (
-            <div className="space-y-8">
-              <Card className="border-amber-200 bg-amber-50">
-                <CardHeader>
-                  <CardTitle className="text-amber-800">Activate Your Subscription</CardTitle>
-                  <CardDescription className="text-amber-700">
-                    You need an active subscription to access repair manuals
-                  </CardDescription>
-                </CardHeader>
-              </Card>
-              <PricingSection />
-              <BrandPreview hasActiveSubscription={false} />
-            </div>
-          )}
+          {/* Back to Landing */}
+          <div className="flex justify-center">
+            <Button variant="outline" onClick={() => router.push('/')}>Back to Home</Button>
+          </div>
         </div>
       </main>
 
-      <Disclaimer className="container pb-8" />
       <Footer />
     </div>
   )
