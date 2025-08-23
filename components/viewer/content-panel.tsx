@@ -9,10 +9,9 @@ interface ContentPanelProps {
   section: ManualSection
   brand: Brand
   model: Model
-  year: number
 }
 
-export function ContentPanel({ section, brand, model, year }: ContentPanelProps) {
+export function ContentPanel({ section, brand, model }: ContentPanelProps) {
   return (
     <div className="h-full overflow-y-auto">
       <div className="max-w-4xl mx-auto p-8">
@@ -22,8 +21,6 @@ export function ContentPanel({ section, brand, model, year }: ContentPanelProps)
             <span>{brand.name}</span>
             <span>•</span>
             <span>{model.name}</span>
-            <span>•</span>
-            <Badge variant="outline">{year}</Badge>
           </div>
           <h1 className="text-3xl font-bold mb-4">{section.title}</h1>
           
@@ -79,7 +76,7 @@ export function ContentPanel({ section, brand, model, year }: ContentPanelProps)
                     <span>Documentation</span>
                   </CardTitle>
                   <CardDescription>
-                    Professional repair manual content for {brand.name} {model.name} ({year})
+                    Professional repair manual content for {brand.name} {model.name}
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="prose prose-slate max-w-none">

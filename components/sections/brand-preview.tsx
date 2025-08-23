@@ -16,9 +16,14 @@ export function BrandPreview({ hasActiveSubscription }: BrandPreviewProps) {
     <section id="brands" className="py-24">
       <div className="container">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Supported Brands</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Access comprehensive repair manuals for the world's most prestigious supercar brands
+          <div className="inline-flex items-center rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary mb-4">
+            Premium Brands
+          </div>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Supported Automotive Brands</h2>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Access comprehensive repair manuals for the world's most prestigious supercar manufacturers.
+            <br />
+            <span className="text-lg text-muted-foreground/80">Professional documentation trusted by certified technicians worldwide.</span>
           </p>
         </div>
 
@@ -57,17 +62,24 @@ export function BrandPreview({ hasActiveSubscription }: BrandPreviewProps) {
                     </div>
                   )}
                   
-                  <div className="flex items-center space-x-4 mb-4">
-                    <div className="text-4xl">{brand.logo}</div>
+                  <div className="flex items-center space-x-4 mb-6">
+                    <div className="w-16 h-16 rounded-lg bg-gradient-to-br from-gray-100 to-gray-200 flex items-center justify-center text-2xl font-bold text-gray-700 shadow-sm">
+                      {/* Future: Replace with <img src={brand.logo} alt={brand.name} className="w-12 h-12 object-contain" /> */}
+                      {brand.logo}
+                    </div>
                     <div>
                       <h3 className="text-xl font-semibold">{brand.name}</h3>
-                      <p className="text-muted-foreground">{brand.modelCount}+ Models</p>
+                      <p className="text-muted-foreground">{brand.modelCount}+ Models Available</p>
+                      <div className="flex items-center space-x-2 mt-1">
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                        <span className="text-xs text-muted-foreground">Professional Grade</span>
+                      </div>
                     </div>
                   </div>
                   
                   {canAccess ? (
                     <Button asChild variant="default" className="w-full">
-                      <Link href={`/viewer/${brand.id}/${brand.models[0]?.id}/${brand.models[0]?.years[0]}/overview`}>
+                      <Link href={`/viewer/${brand.id}/${brand.models[0]?.id}/overview`}>
                         <Car className="mr-2 h-4 w-4" />
                         Browse Models
                       </Link>

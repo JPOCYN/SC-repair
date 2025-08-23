@@ -1,7 +1,7 @@
 export interface Brand {
   id: string
   name: string
-  logo: string
+  logo: string // TODO: Replace with actual car brand logo URLs in the future
   modelCount: number
   available?: boolean
   models: Model[]

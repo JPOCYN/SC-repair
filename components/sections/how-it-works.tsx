@@ -24,9 +24,14 @@ export function HowItWorks() {
     <section id="features" className="py-24 bg-muted/30">
       <div className="container">
         <div className="text-center mb-16">
+          <div className="inline-flex items-center rounded-full bg-blue-100 px-3 py-1 text-sm font-medium text-blue-700 mb-4">
+            Simple Process
+          </div>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">How It Works</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Get started with SC Repair in three simple steps
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            Get access to professional repair manuals in three simple steps.
+            <br />
+            <span className="text-lg text-muted-foreground/80">Designed for automotive professionals and enthusiasts.</span>
           </p>
         </div>
 

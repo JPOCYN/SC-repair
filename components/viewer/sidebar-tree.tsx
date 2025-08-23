@@ -11,10 +11,9 @@ interface SidebarTreeProps {
   currentSectionId: string
   brand: string
   model: string
-  year: number
 }
 
-export function SidebarTree({ sections, currentSectionId, brand, model, year }: SidebarTreeProps) {
+export function SidebarTree({ sections, currentSectionId, brand, model }: SidebarTreeProps) {
   const [expandedSections, setExpandedSections] = useState<Set<string>>(
     new Set(['overview', 'engine', 'transmission'])
   )
@@ -67,7 +66,7 @@ export function SidebarTree({ sections, currentSectionId, brand, model, year }: 
           
           {section.content ? (
             <Link 
-              href={`/viewer/${brand}/${model}/${year}/${section.id}`}
+              href={`/viewer/${brand}/${model}/${section.id}`}
               className="flex-1 text-left truncate"
             >
               {section.title}

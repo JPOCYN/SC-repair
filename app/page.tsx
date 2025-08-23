@@ -61,8 +61,8 @@ function HomePageContent() {
       
       <main>
         <Hero onAuthClick={(tab) => openAuth(tab)} />
-        <HowItWorks />
         <BrandPreview hasActiveSubscription={!!subscription?.active} />
+        <HowItWorks />
         {/* Only show pricing section if user is logged in but doesn't have active subscription */}
         {user && !subscription?.active && <PricingSection />}
       </main>

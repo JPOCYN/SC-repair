@@ -13,7 +13,6 @@ import { Brand, Model, ManualSection } from "@/lib/mock-data"
 interface ManualViewerProps {
   brand: Brand
   model: Model
-  year: number
   sections: ManualSection[]
   currentSectionId: string
   currentSection: ManualSection
@@ -22,7 +21,6 @@ interface ManualViewerProps {
 export function ManualViewer({ 
   brand, 
   model, 
-  year, 
   sections, 
   currentSectionId, 
   currentSection 
@@ -54,8 +52,6 @@ export function ManualViewer({
               <span>{brand.name}</span>
               <span>•</span>
               <span>{model.name}</span>
-              <span>•</span>
-              <Badge variant="outline">{year}</Badge>
             </div>
           </div>
 
@@ -100,8 +96,6 @@ export function ManualViewer({
                 {brand.name} {model.name}
               </h2>
               <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-                <Badge variant="secondary">{year}</Badge>
-                <span>•</span>
                 <span>{model.specs?.engine}</span>
               </div>
             </div>
@@ -112,7 +106,6 @@ export function ManualViewer({
             currentSectionId={currentSectionId}
             brand={brand.id}
             model={model.id}
-            year={year}
           />
         </aside>
 
@@ -122,7 +115,6 @@ export function ManualViewer({
             section={currentSection}
             brand={brand}
             model={model}
-            year={year}
           />
         </main>
       </div>
