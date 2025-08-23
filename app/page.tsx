@@ -36,13 +36,11 @@ function HomePageContent() {
   // Handle redirect after successful login
   useEffect(() => {
     if (user && authParam) {
-      // Close auth modal and redirect after a short delay
-      setTimeout(() => {
-        closeAuth()
-        router.push('/dashboard')
-      }, 1000)
+      // Close auth modal and redirect immediately
+      updateQuery({ auth: null })
+      router.push('/dashboard')
     }
-  }, [user, authParam, router])
+  }, [user, authParam, router, updateQuery])
 
   const openAuth = (tab: 'login' | 'signup' = 'login') => {
     updateQuery({ auth: tab })

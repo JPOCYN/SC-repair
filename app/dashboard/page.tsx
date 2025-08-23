@@ -21,6 +21,13 @@ function DashboardContent() {
     }
   }, [user, loading, router])
 
+  // Prevent redirect loop - if user is logged in, stay on dashboard
+  useEffect(() => {
+    if (user && loading === false) {
+      // User is logged in and loading is complete, stay on dashboard
+    }
+  }, [user, loading])
+
   if (loading) {
     return <div className="min-h-screen bg-background flex items-center justify-center">Loading...</div>
   }

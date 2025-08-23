@@ -31,11 +31,17 @@ export function AuthDialog({ open, onOpenChange, defaultTab = "login" }: AuthDia
           </TabsList>
           
           <TabsContent value="login" className="mt-6">
-            <LoginForm onSuccess={() => onOpenChange(false)} />
+            <LoginForm onSuccess={() => {
+              onOpenChange(false)
+              // Redirect will be handled by the useEffect in the parent component
+            }} />
           </TabsContent>
           
           <TabsContent value="signup" className="mt-6">
-            <SignupForm onSuccess={() => onOpenChange(false)} />
+            <SignupForm onSuccess={() => {
+              onOpenChange(false)
+              // Redirect will be handled by the useEffect in the parent component
+            }} />
           </TabsContent>
         </Tabs>
 
