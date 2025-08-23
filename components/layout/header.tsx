@@ -34,7 +34,10 @@ export function Header({ onAuthClick }: HeaderProps) {
               onError={(e) => {
                 // Fallback to text if logo not found
                 e.currentTarget.style.display = 'none';
-                e.currentTarget.nextElementSibling.style.display = 'flex';
+                const fallbackElement = e.currentTarget.nextElementSibling as HTMLElement;
+                if (fallbackElement) {
+                  fallbackElement.style.display = 'flex';
+                }
               }}
             />
             <div className="hidden items-center justify-center w-full h-full">
