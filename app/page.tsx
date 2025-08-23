@@ -27,11 +27,22 @@ function HomePageContent() {
   useEffect(() => {
     if (loading) return
 
-    // If user is logged in, redirect to dashboard
+    // If user is logged in and no modals are open, redirect to dashboard
     if (user && !authParam && !pricingParam && !activateParam) {
       router.push('/dashboard')
     }
   }, [user, loading, authParam, pricingParam, activateParam, router])
+
+  // Handle redirect after successful login
+  useEffect(() => {
+    if (user && authParam) {
+      // Close auth modal and redirect after a short delay
+      setTimeout(() => {
+        closeAuth()
+        router.push('/dashboard')
+      }, 1000)
+    }
+  }, [user, authParam, router])
 
   const openAuth = (tab: 'login' | 'signup' = 'login') => {
     updateQuery({ auth: tab })

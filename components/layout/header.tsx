@@ -22,12 +22,20 @@ export function Header({ onAuthClick }: HeaderProps) {
 
         <nav className="hidden md:flex items-center space-x-6">
           {user ? (
-            <Link 
-              href="/dashboard" 
-              className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-            >
-              Dashboard
-            </Link>
+            <>
+              <Link 
+                href="/" 
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Home
+              </Link>
+              <Link 
+                href="/dashboard" 
+                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Dashboard
+              </Link>
+            </>
           ) : (
             <>
               <Link 
@@ -35,12 +43,6 @@ export function Header({ onAuthClick }: HeaderProps) {
                 className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 Features
-              </Link>
-              <Link 
-                href="#pricing" 
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
-              >
-                Pricing
               </Link>
               <Link 
                 href="#brands" 

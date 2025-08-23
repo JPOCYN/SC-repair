@@ -9,7 +9,6 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { useAuthState } from '@/hooks/use-auth'
 import { BrandPreview } from '@/components/sections/brand-preview'
-import { PricingSection } from '@/components/sections/pricing-section'
 import { User, Calendar, Settings, BookOpen, Clock, Car } from 'lucide-react'
 
 function DashboardContent() {
@@ -82,6 +81,26 @@ function DashboardContent() {
               </div>
             </CardContent>
           </Card>
+
+          {/* Pricing for inactive subscriptions */}
+          {!subscription?.active && (
+            <Card className="border-amber-200 bg-amber-50">
+              <CardHeader>
+                <CardTitle className="text-amber-800">Activate Your Subscription</CardTitle>
+                <CardDescription className="text-amber-700">
+                  You need an active subscription to access repair manuals
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <Button 
+                  onClick={() => router.push('/?pricing=1')}
+                  className="bg-amber-600 hover:bg-amber-700 text-white"
+                >
+                  View Pricing & Activate
+                </Button>
+              </CardContent>
+            </Card>
+          )}
 
           {/* Quick Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
